@@ -13,7 +13,7 @@ func main() {
 		port = "8080"
 	}
 	http.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "hello from my container")
+		fmt.Fprintln(w, "ciao from my container")
 	})
 	http.HandleFunc("GET /healthz", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "ok")
