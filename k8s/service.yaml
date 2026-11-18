@@ -6,7 +6,8 @@ metadata:
     app: hello
 spec:
   selector:
-    app: helo            # send traffic to every Pod with this label
+    app: hello            # send traffic to every Pod with this label
   ports:
     - port: 80            # the Service listens here
       targetPort: 8080    # your container listens here
+          
