@@ -1,3 +1,4 @@
 .git
 *.md
 Dockerfile*
+k8s

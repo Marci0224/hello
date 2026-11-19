@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: hello          # the Pods this Deployment counts as its own
@@ -16,15 +16,22 @@ spec:
     spec:
       containers:
         - name: hello
-          image: hello:0.1.1
+          image: hello:0.2.0
           ports:
             - containerPort: 8080
+          env:            # config lives in the environment, not in the image
+            - name: PORT
+              value: "8080"
+            - name: GREETING
+              value: hello from the cluster
+            - name: REDIS_URL
+              value: redis://redis:6379/0   # the Service name is its DNS name
           resources:
             requests:
               cpu: 50m
               memory: 16Mi
             limits:
-              memory: 62Mi
+              memory: 64Mi
           startupProbe:           # until this passes, the other two wait
             httpGet:
               path: /healthz

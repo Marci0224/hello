@@ -10,4 +10,3 @@ spec:
   ports:
     - port: 80            # the Service listens here
       targetPort: 8080    # your container listens here
-          
